@@ -29,4 +29,4 @@ export const {
   setUid,
 } = authSlice.actions;
 
-export default authSlice.reducer;
+export const authReducer = authSlice.reducer;

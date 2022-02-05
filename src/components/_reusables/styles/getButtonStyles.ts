@@ -2,7 +2,7 @@ export function getButtonStyles({
   additionalStyles,
   buttonStyle,
 }: ButtonStyleProps) {
-  const baseStyles = 'px-2 py-1 rounded-[.25rem] w-fit hover:-translate-y-[0.125rem] active:translate-y-0';
+  const baseStyles = 'px-2 py-1 rounded-[.25rem] w-fit hover:-translate-y-[0.125rem] active:translate-y-0 active:shadow-';
 
   let styles;
 
