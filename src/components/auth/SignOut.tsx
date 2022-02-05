@@ -4,7 +4,7 @@ import { resetAuth } from "../../redux/authSlice";
 import { signOut } from "firebase/auth";
 import { firebaseAuth } from "../../firebase";
 
-import Button from "../_reusables/Button";
+import { getButtonStyles } from "../_reusables/styles/getButtonStyles";
 
 export default function SignOut() {
   const dispatch = useTypedDispatch();
@@ -20,8 +20,11 @@ export default function SignOut() {
   };
 
   return (
-    <Button onClick={onSignOutButtonClick}>
+    <button
+      onClick={onSignOutButtonClick}
+      className={getButtonStyles({ buttonStyle: 'standard' })}
+    >
       Sign out
-    </Button>
+    </button>
   );
 };

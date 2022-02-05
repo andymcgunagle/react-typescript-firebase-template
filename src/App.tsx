@@ -5,10 +5,10 @@ import { Routes, Route } from "react-router-dom";
 
 import useSetUser from "./hooks/useSetUser";
 
-import AppWrapper from "./components/_reusables/AppWrapper";
+import AppWrapper from "./components/_reusables/components/AppWrapper";
 import AuthPage from "./components/auth/AuthPage";
 import SignOut from "./components/auth/SignOut";
-import Loading from "./components/_reusables/Loading";
+import Loading from "./components/_reusables/components/Loading";
 
 export default function App() {
   //state.auth.uid has an initial state of undefined. The useSetUser hook changes state.auth.uid to a uid string if there is a user or null if there is not.

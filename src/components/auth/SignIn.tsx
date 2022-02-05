@@ -6,10 +6,12 @@ import { setUid } from "../../redux/authSlice";
 import { firebaseAuth } from '../../firebase';
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-import Button from "../_reusables/Button";
-import Form from "../_reusables/Form";
-import Heading from "../_reusables/Heading";
-import Input from "../_reusables/Input";
+import {
+  getButtonStyles,
+  getFormStyles,
+  getHeadingStyles,
+  getInputStyles,
+} from "../_reusables/styles";
 
 export default function SignIn() {
   const dispatch = useTypedDispatch();
@@ -32,28 +34,34 @@ export default function SignIn() {
 
   return (
     <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-sm">
-      <Heading>
+      <h2 className={getHeadingStyles({ headingStyle: 'h2' })}>
         Sign In
-      </Heading>
-      <Form
+      </h2>
+      <form
         onSubmit={submitForm}
+        className={getFormStyles({ formStyle: 'standard' })}
       >
-        <Input
+        <input
           onChange={e => setEmail(e.target.value)}
           placeholder="Email"
           type="email"
           value={email}
+          className={getInputStyles({ inputStyle: 'standard' })}
         />
-        <Input
+        <input
           onChange={e => setPassword(e.target.value)}
           placeholder="Password"
           type="password"
           value={password}
+          className={getInputStyles({ inputStyle: 'standard' })}
         />
-        <Button type="submit">
+        <button
+          type="submit"
+          className={getButtonStyles({ buttonStyle: 'outlined' })}
+        >
           Submit
-        </Button>
-      </Form>
+        </button>
+      </form>
     </div>
   );
 };

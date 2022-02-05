@@ -6,10 +6,12 @@ import { setUid } from "../../redux/authSlice";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from '../../firebase';
 
-import Button from "../_reusables/Button";
-import Form from "../_reusables/Form";
-import Heading from "../_reusables/Heading";
-import Input from "../_reusables/Input";
+import {
+  getButtonStyles,
+  getFormStyles,
+  getHeadingStyles,
+  getInputStyles,
+} from "../_reusables/styles";
 
 export default function SignUp() {
   const dispatch = useTypedDispatch();
@@ -34,35 +36,42 @@ export default function SignUp() {
 
   return (
     <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-sm">
-      <Heading>
+      <h2 className={getHeadingStyles({ headingStyle: 'h2' })}>
         Sign Up
-      </Heading>
+      </h2>
 
-      <Form
+      <form
         onSubmit={submitForm}
+        className={getFormStyles({ formStyle: 'standard' })}
       >
-        <Input
+        <input
           onChange={e => setEmail(e.target.value)}
           placeholder="Email"
           type="email"
           value={email}
+          className={getInputStyles({ inputStyle: 'standard' })}
         />
-        <Input
+        <input
           onChange={e => setPassword(e.target.value)}
           placeholder="Password"
           type="password"
           value={password}
+          className={getInputStyles({ inputStyle: 'standard' })}
         />
-        <Input
+        <input
           onChange={e => setConfirmPassword(e.target.value)}
           placeholder="Confirm password"
           type="password"
           value={confirmPassword}
+          className={getInputStyles({ inputStyle: 'standard' })}
         />
-        <Button type="submit">
+        <button
+          type="submit"
+          className={getButtonStyles({ buttonStyle: 'standard' })}
+        >
           Submit
-        </Button>
-      </Form>
+        </button>
+      </form>
     </div>
   );
 };

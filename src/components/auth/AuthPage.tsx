@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Button from "../_reusables/Button";
+import { getButtonStyles } from "../_reusables/styles/getButtonStyles";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
@@ -10,15 +10,15 @@ export default function AuthPage() {
   return (
     <div className="flex flex-col items-center gap-4">
       {showSignIn ? <SignIn /> : <SignUp />}
-      <Button
-        buttonStyle="text"
+      <button
         onClick={() => setShowSignIn(!showSignIn)}
+        className={getButtonStyles({ buttonStyle: 'text' })}
       >
         {showSignIn ?
           'New here? Click here to create an account'
           : 'Already have an account? Click here to log in'
         }
-      </Button>
+      </button>
     </div>
   );
 };
