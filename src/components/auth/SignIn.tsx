@@ -6,9 +6,10 @@ import { setUid } from "../../redux/authSlice";
 import { firebaseAuth } from '../../firebase';
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-import Input from "../_reusables/Input";
-import Form from "../_reusables/Form";
 import Button from "../_reusables/Button";
+import Form from "../_reusables/Form";
+import Heading from "../_reusables/Heading";
+import Input from "../_reusables/Input";
 
 export default function SignIn() {
   const dispatch = useTypedDispatch();
@@ -29,10 +30,11 @@ export default function SignIn() {
     };
   };
 
-
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-sm">
-      <h2>Sign In</h2>
+      <Heading>
+        Sign In
+      </Heading>
       <Form
         onSubmit={submitForm}
       >
