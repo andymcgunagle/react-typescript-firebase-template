@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from "react-redux";
+import { RootState } from "./redux/store";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import { Routes, Route } from "react-router-dom";
+
+import useSetUser from "./hooks/useSetUser";
+
+import AppWrapper from "./components/_reusables/AppWrapper";
+import AuthPage from "./components/auth/AuthPage";
+import SignOut from "./components/auth/SignOut";
+import Loading from "./components/_reusables/Loading";
+
+export default function App() {
+  //state.auth.uid has an initial state of undefined. The useSetUser hook changes state.auth.uid to a uid string if there is a user or null if there is not.
+  useSetUser();
+
+  const uid = useSelector((state: RootState) => state.auth.uid);
+
+  if (uid === undefined) return (
+    <AppWrapper additionalStyles="justify-center items center">
+      <Loading />
+    </AppWrapper>
   );
-}
 
-export default App;
+  if (uid === null) return (
+    <AppWrapper additionalStyles="justify-center">
+      <AuthPage />
+    </AppWrapper>
+  );
+
+  return (
+    <AppWrapper>
+      <SignOut />
+      <Routes>
+        <Route path="/" element={<h1>Hello, world!</h1>} />
+      </Routes>
+    </AppWrapper>
+  );
+};
