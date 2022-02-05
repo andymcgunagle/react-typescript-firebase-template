@@ -33,7 +33,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 w-full max-w-sm">
+    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-sm">
       <Heading>
         Sign Up
       </Heading>
