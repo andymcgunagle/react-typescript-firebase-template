@@ -28,7 +28,7 @@ export default function SignUp() {
 
     try {
       const credential = await createUserWithEmailAndPassword(firebaseAuth, email, password);
-      dispatch(setUid({ uid: credential.user.uid }));
+      dispatch(setUid(credential.user.uid));
     } catch (error: any) {
       console.error(error.message);
     };
