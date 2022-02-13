@@ -26,7 +26,7 @@ export default function SignIn() {
 
     try {
       const credential = await signInWithEmailAndPassword(firebaseAuth, email, password);
-      dispatch(setUid({ uid: credential.user.uid }));
+      dispatch(setUid(credential.user.uid));
     } catch (error: any) {
       console.error(error.message);
     };
