@@ -7,6 +7,8 @@ import Confirmation from "../_reusables/components/Confirmation";
 import ErrorMessage from "../_reusables/components/ErrorMessage";
 import { getButtonStyles, getFormStyles, getInputStyles } from "../_reusables/styles";
 import { useNavigate } from "react-router-dom";
+import AppName from "../_reusables/components/AppName";
+import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
@@ -39,6 +41,30 @@ export default function ForgotPassword() {
 
   return (
     <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-sm">
+      <AppName />
+      <AuthFormWrapper heading="Which email should we send a reset password link to?">
+        <form
+          onSubmit={triggerPasswordResetEmail}
+          className={getFormStyles({
+            formStyle: 'standard',
+          })}
+        >
+          <input
+            autoFocus
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Email"
+            type="email"
+            value={email}
+            className={getInputStyles({ inputStyle: 'standard' })}
+          />
+          <button
+            type="submit"
+            className={getButtonStyles({ buttonStyle: 'standard' })}
+          >
+            Submit
+          </button>
+        </form>
+      </AuthFormWrapper>
       <button
         onClick={() => navigate({ pathname: '/sign-in' })}
         className="flex gap-2 items-center"
@@ -46,32 +72,8 @@ export default function ForgotPassword() {
         <span className="material-icons flex justify-center items-center h-8 w-8 p-2 bg-gray-100 rounded-full text-sm">
           arrow_back
         </span>
-        Back
+        Back to sign in
       </button>
-      <h2 className="font-semibold text-xl text-center">
-        Which email should we send a reset password link to?
-      </h2>
-      <form
-        onSubmit={triggerPasswordResetEmail}
-        className={getFormStyles({
-          formStyle: 'standard',
-        })}
-      >
-        <input
-          autoFocus
-          onChange={e => setEmail(e.target.value)}
-          placeholder="Email"
-          type="email"
-          value={email}
-          className={getInputStyles({ inputStyle: 'standard' })}
-        />
-        <button
-          type="submit"
-          className={getButtonStyles({ buttonStyle: 'standard' })}
-        >
-          Submit
-        </button>
-      </form>
       <Confirmation
         emoji="📩"
         secondsVisible={5}

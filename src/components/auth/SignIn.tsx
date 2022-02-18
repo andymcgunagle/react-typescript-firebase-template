@@ -15,6 +15,7 @@ import {
   getInputStyles,
 } from "../_reusables/styles";
 import AppName from "../_reusables/components/AppName";
+import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 
 export default function SignIn() {
   const dispatch = useTypedDispatch();
@@ -54,10 +55,7 @@ export default function SignIn() {
   return (
     <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-md">
       <AppName />
-      <div className="flex flex-col gap-2 border-y-4 border-gray-900 py-8 w-full">
-        <h2 className="font-semibold text-xl text-center">
-          Welcome back!
-        </h2>
+      <AuthFormWrapper heading="Welcome back!">
         <form
           onSubmit={submitForm}
           className={getFormStyles({
@@ -86,7 +84,7 @@ export default function SignIn() {
             Submit
           </button>
         </form>
-      </div>
+      </AuthFormWrapper>
       <div className="flex flex-col items-center gap-2">
         <button
           onClick={() => navigate({ pathname: '/' })}

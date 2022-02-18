@@ -9,6 +9,8 @@ import { handleResetPassword } from "../../functions/handleResetPassword";
 import Confirmation from "../_reusables/components/Confirmation";
 import ErrorMessage from "../_reusables/components/ErrorMessage";
 import { getButtonStyles, getFormStyles, getInputStyles } from "../_reusables/styles";
+import AppName from "../_reusables/components/AppName";
+import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
@@ -60,36 +62,36 @@ export default function ResetPassword() {
 
   return (
     <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-sm">
-      <h2 className="font-semibold text-xl text-center">
-        Create a new password
-      </h2>
-      <form
-        onSubmit={submitForm}
-        className={getFormStyles({
-          formStyle: 'standard',
-        })}
-      >
-        <input
-          onChange={e => setPassword(e.target.value)}
-          placeholder="Password"
-          type="password"
-          value={password}
-          className={getInputStyles({ inputStyle: 'standard' })}
-        />
-        <input
-          onChange={e => setConfirmPassword(e.target.value)}
-          placeholder="Confirm password"
-          type="password"
-          value={confirmPassword}
-          className={getInputStyles({ inputStyle: 'standard' })}
-        />
-        <button
-          type="submit"
-          className={getButtonStyles({ buttonStyle: 'standard' })}
+      <AppName />
+      <AuthFormWrapper heading="Create a new password">
+        <form
+          onSubmit={submitForm}
+          className={getFormStyles({
+            formStyle: 'standard',
+          })}
         >
-          Submit
-        </button>
-      </form>
+          <input
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Password"
+            type="password"
+            value={password}
+            className={getInputStyles({ inputStyle: 'standard' })}
+          />
+          <input
+            onChange={e => setConfirmPassword(e.target.value)}
+            placeholder="Confirm password"
+            type="password"
+            value={confirmPassword}
+            className={getInputStyles({ inputStyle: 'standard' })}
+          />
+          <button
+            type="submit"
+            className={getButtonStyles({ buttonStyle: 'standard' })}
+          >
+            Submit
+          </button>
+        </form>
+      </AuthFormWrapper>
       <Confirmation
         emoji="👍"
         secondsVisible={3}
