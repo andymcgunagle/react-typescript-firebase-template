@@ -5,12 +5,12 @@ import { Routes, Route } from "react-router-dom";
 
 import useSetUser from "./hooks/useSetUser";
 
-import AppWrapper from "./components/_reusables/components/AppWrapper";
+import FixedMenuButton from "./components/_reusables/components/FixedMenuButton";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import Loading from "./components/_reusables/components/Loading";
+import MainNavPage from "./components/MainNavPage";
 import ResetPassword from "./components/auth/ResetPassword";
 import SignIn from "./components/auth/SignIn";
-import SignOut from "./components/auth/SignOut";
 import SignUp from "./components/auth/SignUp";
 
 export default function App() {
@@ -20,29 +20,29 @@ export default function App() {
   const uid = useSelector((state: RootState) => state.auth.uid);
 
   if (uid === undefined) return (
-    <AppWrapper additionalStyles="justify-center items center">
+    <div className="`flex flex-col h-screen p-4 justify-center items center">
       <Loading />
-    </AppWrapper>
+    </div>
   );
 
   if (uid === null) return (
-    <div className="flex flex-col justify-center items-center p-4 min-h-screen overflow-scroll">
+    <main className="flex flex-col justify-center items-center p-4 min-h-screen overflow-scroll">
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/profile/:matchId" element={<SignUp />} />
       </Routes>
-    </div>
+    </main>
   );
 
   return (
-    <AppWrapper>
-      <SignOut />
+    <main className="p-8 pb-28 min-h-screen overflow-scroll max-w-2xl m-auto relative">
       <Routes>
-        <Route path="/" element={<h1>Hello, world!</h1>} />
+        <Route path="/" element={<MainNavPage />} />
+        <Route path="/test" element={<h1>Hello, world!</h1>} />
       </Routes>
-    </AppWrapper>
+      <FixedMenuButton />
+    </main>
   );
 };
