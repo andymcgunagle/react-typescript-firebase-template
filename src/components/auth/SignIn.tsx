@@ -81,7 +81,7 @@ export default function SignIn() {
             type="submit"
             className={getButtonStyles({ buttonStyle: 'standard' })}
           >
-            Submit
+            Sign in
           </button>
         </form>
       </AuthFormWrapper>
@@ -94,8 +94,7 @@ export default function SignIn() {
             additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
           })}
         >
-          <span>New here? </span>
-          <span>Click here to create an account.</span>
+          Create an account
         </button>
         <button
           onClick={() => navigate({ pathname: '/forgot-password' })}

@@ -18,7 +18,7 @@ import {
 } from "../_reusables/styles";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
-import SignUpWithGoogleButton from "./SignUpWithGoogleButton";
+import SignUpWithGoogleButton from "./SignUpUsingGoogleButton";
 
 export default function SignUp() {
   const dispatch = useTypedDispatch();
@@ -115,7 +115,7 @@ export default function SignUp() {
                 type="submit"
                 className={getButtonStyles({ buttonStyle: 'standard' })}
               >
-                Submit
+                Sign up
               </button>
             </form>
             <button
@@ -126,7 +126,7 @@ export default function SignUp() {
                 additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
               })}
             >
-              ...or click here to sign up using Google.
+              ...or use your Google account instead.
             </button>
           </>
           :
@@ -143,7 +143,7 @@ export default function SignUp() {
                 additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
               })}
             >
-              ...or click here to sign up with an email & password.
+              ...or use an email & password instead.
             </button>
           </>}
 
@@ -156,8 +156,7 @@ export default function SignUp() {
           additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
         })}
       >
-        <span>Already have an account? </span>
-        <span>Click here to log in.</span>
+        Already have an account?
       </button>
       <ErrorMessage
         message={errorMessage}

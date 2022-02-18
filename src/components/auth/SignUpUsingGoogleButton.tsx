@@ -6,10 +6,10 @@ import { setUid } from "../../redux/authSlice";
 import { getButtonStyles } from "../_reusables/styles";
 import googleLogo from "../../images/google-logo.svg.png";
 
-export default function SignUpWithGoogleButton({
+export default function SignUpUsingGoogleButton({
   setErrorMessage,
   setShowErrorMessage,
-}: SignUpWithGoogleButtonProps) {
+}: SignUpUsingGoogleButtonProps) {
   const dispatch = useDispatch();
 
   const signUpWithGoogle = async () => {
@@ -44,12 +44,12 @@ export default function SignUpWithGoogleButton({
         alt="Google logo"
         className="h-4 w-4"
       />
-      Sign up with Google
+      Sign up
     </button>
   );
 };
 
-interface SignUpWithGoogleButtonProps {
+interface SignUpUsingGoogleButtonProps {
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>,
   setShowErrorMessage: React.Dispatch<React.SetStateAction<boolean>>,
 };

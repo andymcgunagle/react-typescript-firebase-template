@@ -46,7 +46,7 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-sm">
+    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-md">
       <AppName />
       <AuthFormWrapper heading="Which email should we send a reset password link to?">
         <form
@@ -67,7 +67,7 @@ export default function ForgotPassword() {
             type="submit"
             className={getButtonStyles({ buttonStyle: 'standard' })}
           >
-            Submit
+            Send email
           </button>
         </form>
       </AuthFormWrapper>

@@ -67,7 +67,7 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-sm">
+    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-md">
       <AppName />
       <AuthFormWrapper heading="Create a new password">
         <form
@@ -94,7 +94,7 @@ export default function ResetPassword() {
             type="submit"
             className={getButtonStyles({ buttonStyle: 'standard' })}
           >
-            Submit
+            Reset password
           </button>
         </form>
       </AuthFormWrapper>
