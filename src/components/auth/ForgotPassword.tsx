@@ -3,12 +3,18 @@ import { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { firebaseAuth } from "../../firebase";
 
-import Confirmation from "../_reusables/components/Confirmation";
-import ErrorMessage from "../_reusables/components/ErrorMessage";
-import { getButtonStyles, getFormStyles, getInputStyles } from "../_reusables/styles";
 import { useNavigate } from "react-router-dom";
+
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
+import Confirmation from "../_reusables/components/Confirmation";
+import ErrorMessage from "../_reusables/components/ErrorMessage";
+import {
+  getButtonStyles,
+  getFormStyles,
+  getInputStyles,
+  getIconStyles
+} from "../_reusables/styles";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
@@ -67,9 +73,9 @@ export default function ForgotPassword() {
       </AuthFormWrapper>
       <button
         onClick={() => navigate({ pathname: '/sign-in' })}
-        className="flex gap-2 items-center"
+        className={getButtonStyles({ buttonStyle: 'text-and-icon' })}
       >
-        <span className="material-icons flex justify-center items-center h-8 w-8 p-2 bg-gray-100 rounded-full text-sm">
+        <span className={getIconStyles({ iconStyle: 'gray' })}>
           arrow_back
         </span>
         Back to sign in

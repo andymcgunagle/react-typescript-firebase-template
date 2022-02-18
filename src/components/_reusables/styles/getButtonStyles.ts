@@ -2,7 +2,7 @@ export function getButtonStyles({
   additionalStyles,
   buttonStyle,
 }: GetButtonStylesProps) {
-  const baseStyles = 'px-2 py-1 rounded-[.25rem] w-fit hover:-translate-y-[0.125rem] active:translate-y-0 active:shadow-';
+  const baseStyles = 'px-2 py-1 rounded-[.25rem] w-fit hover:-translate-y-[0.125rem] active:translate-y-0';
 
   let styles;
 
@@ -16,6 +16,9 @@ export function getButtonStyles({
     case 'text':
       styles = `${baseStyles} text-gray-900`;
       break;
+    case 'text-and-icon':
+      styles = `${baseStyles} flex gap-2 items-center`;
+      break;
     default:
       throw new Error('Must specify button style.');
   };
@@ -27,5 +30,5 @@ export function getButtonStyles({
 
 interface GetButtonStylesProps {
   additionalStyles?: string,
-  buttonStyle: 'outlined' | 'standard' | 'text',
+  buttonStyle: 'outlined' | 'standard' | 'text' | 'text-and-icon',
 };

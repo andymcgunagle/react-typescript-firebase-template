@@ -6,11 +6,15 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { handleResetPassword } from "../../functions/handleResetPassword";
 
-import Confirmation from "../_reusables/components/Confirmation";
-import ErrorMessage from "../_reusables/components/ErrorMessage";
-import { getButtonStyles, getFormStyles, getInputStyles } from "../_reusables/styles";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
+import Confirmation from "../_reusables/components/Confirmation";
+import ErrorMessage from "../_reusables/components/ErrorMessage";
+import {
+  getButtonStyles,
+  getFormStyles,
+  getInputStyles
+} from "../_reusables/styles";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
@@ -39,6 +43,8 @@ export default function ResetPassword() {
 
     try {
       const actionCode = searchParams.get('oobCode');
+
+      // If using a custom domain, be sure to add it to your Authorized domains in Firebase: Authentication > Sign-in method > Add domain
 
       if (actionCode) {
         handleResetPassword({
