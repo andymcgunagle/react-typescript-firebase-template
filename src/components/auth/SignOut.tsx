@@ -12,7 +12,7 @@ export default function SignOut() {
   const onSignOutButtonClick = async () => {
     try {
       await signOut(firebaseAuth);
-      // localStorage.clear();
+      localStorage.clear();
       dispatch(resetAuth(null));
     } catch (error: any) {
       console.error(error.message);
@@ -22,9 +22,12 @@ export default function SignOut() {
   return (
     <button
       onClick={onSignOutButtonClick}
-      className={getButtonStyles({ buttonStyle: 'standard' })}
+      className={getButtonStyles({
+        buttonStyle: 'text',
+        additionalStyles: 'font-semibold'
+      })}
     >
-      Sign out
+      👋 Sign out
     </button>
   );
 };

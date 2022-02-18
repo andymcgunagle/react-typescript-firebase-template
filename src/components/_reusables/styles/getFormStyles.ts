@@ -6,7 +6,7 @@ export function getFormStyles({
 
   switch (formStyle) {
     case 'standard':
-      styles = 'flex flex-col items-center gap-4 w-full';
+      styles = 'flex flex-col items-center gap-4 w-full max-w-sm m-auto';
       break;
     default:
       throw new Error('Must specify a formStyle.');
