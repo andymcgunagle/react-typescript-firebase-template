@@ -4,7 +4,6 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { firebaseAuth } from "../../firebase";
 
 import Confirmation from "../_reusables/components/Confirmation";
-import Detail from "../_reusables/components/Detail";
 import ErrorMessage from "../_reusables/components/ErrorMessage";
 import { getButtonStyles, getFormStyles, getInputStyles } from "../_reusables/styles";
 import { useNavigate } from "react-router-dom";
@@ -74,15 +73,12 @@ export default function ForgotPassword() {
         </button>
       </form>
       <Confirmation
+        emoji="📩"
         secondsVisible={5}
         setShowConfirmation={setShowConfirmation}
         showConfirmation={showConfirmation}
-      >
-        <Detail
-          detail="Password reset email sent! Please check your email."
-          emoji="📩"
-        />
-      </Confirmation>
+        text="Password reset email sent! Please check your email."
+      />
       <ErrorMessage
         message={errorMessage}
         setShowErrorMessage={setShowErrorMessage}

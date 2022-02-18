@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 
 export default function Confirmation({
-  children,
+  emoji,
   secondsVisible,
   setShowConfirmation,
   showConfirmation,
+  text,
 }: ConfirmationProps) {
 
   useEffect(() => {
@@ -19,7 +20,12 @@ export default function Confirmation({
           onClick={() => setShowConfirmation(!showConfirmation)}
           className="absolute top-4 flex flex-col gap-4 p-4 max-w-[80%] text-sm font-light bg-green-100 border-2 border-green-900 rounded-md cursor-pointer animate-notification"
         >
-          {children}
+          <div className="flex gap-2 items-center">
+            <span className="flex justify-center items-center text-sm h-8 w-8 p-2 rounded-full bg-green-700">
+              {emoji}
+            </span>
+            <span>{text}</span>
+          </div>
         </div>
         : null}
     </>
@@ -27,8 +33,9 @@ export default function Confirmation({
 };
 
 interface ConfirmationProps {
-  children: JSX.Element | JSX.Element[],
+  emoji: string,
   secondsVisible: number,
   setShowConfirmation: React.Dispatch<React.SetStateAction<boolean>>,
   showConfirmation: boolean,
+  text: string,
 };

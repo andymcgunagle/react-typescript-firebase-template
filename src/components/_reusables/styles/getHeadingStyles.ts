@@ -1,7 +1,7 @@
 export function getHeadingStyles({
   additionalStyles,
   headingStyle,
-}: HeadingStyleProps) {
+}: GetHeadingStylesProps) {
   let styles;
 
   switch (headingStyle) {
@@ -32,9 +32,7 @@ export function getHeadingStyles({
   return styles;
 };
 
-type HeadingStyle = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-
-interface HeadingStyleProps {
+interface GetHeadingStylesProps {
   additionalStyles?: string,
-  headingStyle: HeadingStyle,
+  headingStyle: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6',
 };

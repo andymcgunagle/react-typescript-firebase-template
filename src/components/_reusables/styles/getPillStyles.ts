@@ -1,7 +1,7 @@
 export function getPillStyles({
   additionalStyles,
   pillStyle,
-}: GetPillStyleProps) {
+}: GetPillStylesProps) {
   const baseStyles = 'rounded-full w-fit';
 
   let styles;
@@ -19,7 +19,7 @@ export function getPillStyles({
   return styles;
 };
 
-interface GetPillStyleProps {
+interface GetPillStylesProps {
   additionalStyles?: string,
   pillStyle: 'standard',
 };

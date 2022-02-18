@@ -1,7 +1,7 @@
 export function getFormStyles({
   additionalStyles,
   formStyle,
-}: HeadingStyleProps) {
+}: GetFormStylesProps) {
   let styles;
 
   switch (formStyle) {
@@ -17,9 +17,7 @@ export function getFormStyles({
   return styles;
 };
 
-type FormStyle = 'standard';
-
-interface HeadingStyleProps {
+interface GetFormStylesProps {
   additionalStyles?: string,
-  formStyle: FormStyle,
+  formStyle: 'standard',
 };

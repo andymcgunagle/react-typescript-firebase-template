@@ -1,7 +1,7 @@
 export function getButtonStyles({
   additionalStyles,
   buttonStyle,
-}: ButtonStyleProps) {
+}: GetButtonStylesProps) {
   const baseStyles = 'px-2 py-1 rounded-[.25rem] w-fit hover:-translate-y-[0.125rem] active:translate-y-0 active:shadow-';
 
   let styles;
@@ -25,9 +25,7 @@ export function getButtonStyles({
   return styles;
 };
 
-type ButtonStyle = 'outlined' | 'standard' | 'text';
-
-interface ButtonStyleProps {
+interface GetButtonStylesProps {
   additionalStyles?: string,
-  buttonStyle: ButtonStyle,
+  buttonStyle: 'outlined' | 'standard' | 'text',
 };

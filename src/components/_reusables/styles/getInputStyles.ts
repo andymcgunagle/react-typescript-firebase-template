@@ -1,7 +1,7 @@
 export function getInputStyles({
   additionalStyles,
   inputStyle,
-}: HeadingStyleProps) {
+}: GetInputStylesProps) {
   let styles;
 
   switch (inputStyle) {
@@ -17,9 +17,7 @@ export function getInputStyles({
   return styles;
 };
 
-type InputStyle = 'standard';
-
-interface HeadingStyleProps {
+interface GetInputStylesProps {
   additionalStyles?: string,
-  inputStyle: InputStyle,
+  inputStyle: 'standard',
 };

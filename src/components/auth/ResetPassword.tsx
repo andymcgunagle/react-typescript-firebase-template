@@ -7,7 +7,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { handleResetPassword } from "../../functions/handleResetPassword";
 
 import Confirmation from "../_reusables/components/Confirmation";
-import Detail from "../_reusables/components/Detail";
 import ErrorMessage from "../_reusables/components/ErrorMessage";
 import { getButtonStyles, getFormStyles, getInputStyles } from "../_reusables/styles";
 
@@ -92,15 +91,12 @@ export default function ResetPassword() {
         </button>
       </form>
       <Confirmation
+        emoji="👍"
         secondsVisible={3}
         setShowConfirmation={setShowConfirmation}
         showConfirmation={showConfirmation}
-      >
-        <Detail
-          detail="Password reset! Redirecting you to the login page."
-          emoji="👍"
-        />
-      </Confirmation>
+        text="Password reset! Redirecting you to the login page."
+      />
       <ErrorMessage
         message={errorMessage}
         setShowErrorMessage={setShowErrorMessage}
