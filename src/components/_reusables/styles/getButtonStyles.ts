@@ -13,6 +13,9 @@ export function getButtonStyles({
     case 'standard':
       styles = `${baseStyles} bg-gray-900 text-gray-50 shadow-md`;
       break;
+    case 'standard-with-icon':
+      styles = `${baseStyles} bg-gray-900 text-gray-50 shadow-md flex gap-2 items-center`;
+      break;
     case 'text':
       styles = `${baseStyles} text-gray-900`;
       break;
@@ -30,5 +33,5 @@ export function getButtonStyles({
 
 interface GetButtonStylesProps {
   additionalStyles?: string,
-  buttonStyle: 'outlined' | 'standard' | 'text' | 'text-and-icon',
+  buttonStyle: 'outlined' | 'standard' | 'standard-with-icon' | 'text' | 'text-and-icon',
 };
