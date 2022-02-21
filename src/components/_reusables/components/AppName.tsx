@@ -1,12 +1,7 @@
-import { getHeadingStyles, getIconStyles } from "../styles";
-
 export default function AppName() {
   return (
-    <h1 className={getHeadingStyles({
-      headingStyle: 'h1',
-      additionalStyles: 'flex flex-col items-center gap-2 text-center text-gray-900',
-    })}>
-      <span className={getIconStyles({ iconStyle: 'large-gray' })}>
+    <h1 className="heading-h1 flex flex-col items-center gap-2 text-center text-gray-900">
+      <span className="material-icons icon-gray-3xl">
         question_mark
       </span>
       <span>

@@ -3,7 +3,6 @@ import { doc, setDoc } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { firebaseAuth, firestoreDB } from "../../firebase";
 import { setUid } from "../../redux/authSlice";
-import { getButtonStyles } from "../_reusables/styles";
 import googleLogo from "../../images/google-logo.svg.png";
 
 export default function SignUpUsingGoogleButton({
@@ -34,10 +33,7 @@ export default function SignUpUsingGoogleButton({
     <button
       type="button"
       onClick={signUpWithGoogle}
-      className={getButtonStyles({
-        buttonStyle: 'standard-with-icon'
-
-      })}
+      className="button-standard button-with-icon"
     >
       <img
         src={googleLogo}

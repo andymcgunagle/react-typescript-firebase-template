@@ -10,11 +10,6 @@ import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 import Confirmation from "../_reusables/components/Confirmation";
 import ErrorMessage from "../_reusables/components/ErrorMessage";
-import {
-  getButtonStyles,
-  getFormStyles,
-  getInputStyles
-} from "../_reusables/styles";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
@@ -72,27 +67,25 @@ export default function ResetPassword() {
       <AuthFormWrapper heading="Create a new password">
         <form
           onSubmit={submitForm}
-          className={getFormStyles({
-            formStyle: 'standard',
-          })}
+          className="form-standard"
         >
           <input
             onChange={e => setPassword(e.target.value)}
             placeholder="Password"
             type="password"
             value={password}
-            className={getInputStyles({ inputStyle: 'standard' })}
+            className="input-standard"
           />
           <input
             onChange={e => setConfirmPassword(e.target.value)}
             placeholder="Confirm password"
             type="password"
             value={confirmPassword}
-            className={getInputStyles({ inputStyle: 'standard' })}
+            className="input-standard"
           />
           <button
             type="submit"
-            className={getButtonStyles({ buttonStyle: 'standard' })}
+            className="button-standard"
           >
             Reset password
           </button>

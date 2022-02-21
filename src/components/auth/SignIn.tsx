@@ -9,11 +9,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, useParams } from "react-router-dom";
 
 import ErrorMessage from "../_reusables/components/ErrorMessage";
-import {
-  getButtonStyles,
-  getFormStyles,
-  getInputStyles,
-} from "../_reusables/styles";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 
@@ -58,9 +53,7 @@ export default function SignIn() {
       <AuthFormWrapper heading="Welcome back!">
         <form
           onSubmit={submitForm}
-          className={getFormStyles({
-            formStyle: 'standard',
-          })}
+          className="form-standard"
         >
           <input
             autoFocus
@@ -68,18 +61,18 @@ export default function SignIn() {
             placeholder="Email"
             type="email"
             value={email}
-            className={getInputStyles({ inputStyle: 'standard' })}
+            className="input-standard"
           />
           <input
             onChange={e => setPassword(e.target.value)}
             placeholder="Password"
             type="password"
             value={password}
-            className={getInputStyles({ inputStyle: 'standard' })}
+            className="input-standard"
           />
           <button
             type="submit"
-            className={getButtonStyles({ buttonStyle: 'standard' })}
+            className="button-standard"
           >
             Sign in
           </button>
@@ -89,20 +82,14 @@ export default function SignIn() {
         <button
           onClick={() => navigate({ pathname: '/' })}
           type="button"
-          className={getButtonStyles({
-            buttonStyle: 'text',
-            additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
-          })}
+          className="button-text button-with-icon"
         >
           Create an account
         </button>
         <button
           onClick={() => navigate({ pathname: '/forgot-password' })}
           type="button"
-          className={getButtonStyles({
-            buttonStyle: 'text',
-            additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
-          })}
+          className="button-text button-with-icon"
         >
           Forgot your password?
         </button>

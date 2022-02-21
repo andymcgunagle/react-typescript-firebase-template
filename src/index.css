@@ -6,6 +6,88 @@
 
 @layer base {
   body {
-    @apply animate-fadeIn font-raleway;
+    @apply overscroll-none animate-fadeIn font-raleway;
+  }
+}
+
+@layer components {
+  /* button component */
+  .button-base {
+    @apply px-2 py-1 rounded-[.25rem] w-fit hover:-translate-y-[0.125rem] active:translate-y-0;
+  }
+  .button-with-icon {
+    @apply flex gap-2 items-center;
+  }
+  .button-standard {
+    @apply button-base bg-gray-900 text-gray-50 shadow-md;
+  }
+  .button-outlined {
+    @apply button-base border-2 border-gray-900 text-gray-900 shadow-md;
+  }
+  .button-text {
+    @apply button-base text-gray-900;
+  }
+
+  /* form component */
+  .form-standard {
+    @apply flex flex-col items-center gap-4 w-full max-w-sm m-auto;
+  }
+
+  /* heading component */
+  .heading-h1 {
+    @apply text-4xl;
+  }
+  .heading-h2 {
+    @apply text-3xl;
+  }
+  .heading-h3 {
+    @apply text-2xl;
+  }
+  .heading-h4 {
+    @apply text-xl;
+  }
+  .heading-h5 {
+    @apply text-lg;
+  }
+  .heading-h6 {
+    @apply text-base;
+  }
+
+  /* input component */
+  .input-standard {
+    @apply border-b-2 border-gray-900 p-2 w-full shadow-inner;
+  }
+
+  /* icon component */
+  .icon-base {
+    @apply flex justify-center items-center rounded-full;
+  }
+  .icon-sm {
+    @apply icon-base text-sm h-8 w-8 p-2;
+  }
+  .icon-3xl {
+    @apply icon-base text-3xl h-12 w-12 p-2;
+  }
+  .icon-gray-sm {
+    @apply icon-sm bg-gray-100 text-gray-900;
+  }
+  .icon-green-sm {
+    @apply icon-sm bg-green-100 text-green-900;
+  }
+  .icon-gray-3xl {
+    @apply icon-3xl bg-gray-200 text-gray-900;
+  }
+  .icon-red-sm {
+    @apply icon-sm bg-red-100 text-red-900;
+  }
+
+  /* textarea component */
+  .textarea-standard {
+    @apply border-2 border-gray-200 rounded-md p-2 h-24 w-full resize-y;
+  }
+
+  /* pill component */
+  .pill-standard {
+    @apply rounded-full w-fit shadow-md px-4 py-2;
   }
 }

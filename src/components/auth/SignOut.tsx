@@ -4,8 +4,6 @@ import { resetAuth } from "../../redux/authSlice";
 import { signOut } from "firebase/auth";
 import { firebaseAuth } from "../../firebase";
 
-import { getButtonStyles } from "../_reusables/styles/getButtonStyles";
-
 export default function SignOut() {
   const dispatch = useTypedDispatch();
 
@@ -22,10 +20,7 @@ export default function SignOut() {
   return (
     <button
       onClick={onSignOutButtonClick}
-      className={getButtonStyles({
-        buttonStyle: 'text',
-        additionalStyles: 'font-semibold'
-      })}
+      className="button-text font-semibold"
     >
       👋 Sign out
     </button>

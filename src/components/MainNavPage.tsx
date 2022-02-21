@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 import AppName from "./_reusables/components/AppName";
 import SignOut from "./auth/SignOut";
-import { getPillStyles } from "./_reusables/styles/getPillStyles";
 
 export default function MainNavPage() {
   return (
@@ -11,14 +10,14 @@ export default function MainNavPage() {
         <li>
           <AppName />
         </li>
-        <li className={getPillStyles({ pillStyle: 'standard' })}>
+        <li className="pill-standard">
           <Link
             to={`/test`}
           >
             🙂 Here's a link
           </Link>
         </li>
-        <li className={getPillStyles({ pillStyle: 'standard' })}>
+        <li className="pill-standard">
           <SignOut />
         </li>
       </ul>

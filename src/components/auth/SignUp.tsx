@@ -11,11 +11,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 
 import ErrorMessage from "../_reusables/components/ErrorMessage";
-import {
-  getButtonStyles,
-  getFormStyles,
-  getInputStyles,
-} from "../_reusables/styles";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 import SignUpWithGoogleButton from "./SignUpUsingGoogleButton";
@@ -77,9 +72,7 @@ export default function SignUp() {
           <>
             <form
               onSubmit={submitForm}
-              className={getFormStyles({
-                formStyle: 'standard',
-              })}
+              className="form-standard"
             >
               <input
                 autoFocus
@@ -88,32 +81,32 @@ export default function SignUp() {
                 placeholder="First name"
                 type="text"
                 value={firstName}
-                className={getInputStyles({ inputStyle: 'standard' })}
+                className="input-standard"
               />
               <input
                 onChange={e => setEmail(e.target.value)}
                 placeholder="Email"
                 type="email"
                 value={email}
-                className={getInputStyles({ inputStyle: 'standard' })}
+                className="input-standard"
               />
               <input
                 onChange={e => setPassword(e.target.value)}
                 placeholder="Password"
                 type="password"
                 value={password}
-                className={getInputStyles({ inputStyle: 'standard' })}
+                className="input-standard"
               />
               <input
                 onChange={e => setConfirmPassword(e.target.value)}
                 placeholder="Confirm password"
                 type="password"
                 value={confirmPassword}
-                className={getInputStyles({ inputStyle: 'standard' })}
+                className="input-standard"
               />
               <button
                 type="submit"
-                className={getButtonStyles({ buttonStyle: 'standard' })}
+                className="button-standard"
               >
                 Sign up
               </button>
@@ -121,10 +114,7 @@ export default function SignUp() {
             <button
               onClick={() => setUseEmailAndPassword(!useEmailAndPassword)}
               type="button"
-              className={getButtonStyles({
-                buttonStyle: 'text',
-                additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
-              })}
+              className="button-text flex flex-wrap justify-center items-center gap-1"
             >
               ...or use your Google account instead.
             </button>
@@ -138,10 +128,7 @@ export default function SignUp() {
             <button
               onClick={() => setUseEmailAndPassword(!useEmailAndPassword)}
               type="button"
-              className={getButtonStyles({
-                buttonStyle: 'text',
-                additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
-              })}
+              className="button-text flex flex-wrap justify-center items-center gap-1"
             >
               ...or use an email & password instead.
             </button>
@@ -151,10 +138,7 @@ export default function SignUp() {
       <button
         onClick={() => navigate({ pathname: '/sign-in' })}
         type="button"
-        className={getButtonStyles({
-          buttonStyle: 'text',
-          additionalStyles: 'flex flex-wrap justify-center items-center gap-1',
-        })}
+        className="button-text flex flex-wrap justify-center items-center gap-1"
       >
         Already have an account?
       </button>

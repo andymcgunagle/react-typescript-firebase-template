@@ -9,6 +9,7 @@ import FixedMenuButton from "./components/_reusables/components/FixedMenuButton"
 import ForgotPassword from "./components/auth/ForgotPassword";
 import Loading from "./components/_reusables/components/Loading";
 import MainNavPage from "./components/MainNavPage";
+import PageNotFound from "./components/_reusables/components/PageNotFound";
 import ResetPassword from "./components/auth/ResetPassword";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </main>
   );
@@ -41,6 +43,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<MainNavPage />} />
         <Route path="/test" element={<h1>Hello, world!</h1>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <FixedMenuButton />
     </main>

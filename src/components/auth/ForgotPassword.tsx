@@ -9,12 +9,6 @@ import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 import Confirmation from "../_reusables/components/Confirmation";
 import ErrorMessage from "../_reusables/components/ErrorMessage";
-import {
-  getButtonStyles,
-  getFormStyles,
-  getInputStyles,
-  getIconStyles
-} from "../_reusables/styles";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
@@ -51,9 +45,7 @@ export default function ForgotPassword() {
       <AuthFormWrapper heading="Which email should we send a reset password link to?">
         <form
           onSubmit={triggerPasswordResetEmail}
-          className={getFormStyles({
-            formStyle: 'standard',
-          })}
+          className="form-standard"
         >
           <input
             autoFocus
@@ -61,11 +53,11 @@ export default function ForgotPassword() {
             placeholder="Email"
             type="email"
             value={email}
-            className={getInputStyles({ inputStyle: 'standard' })}
+            className="input-standard"
           />
           <button
             type="submit"
-            className={getButtonStyles({ buttonStyle: 'standard' })}
+            className="button-standard"
           >
             Send email
           </button>
@@ -73,9 +65,9 @@ export default function ForgotPassword() {
       </AuthFormWrapper>
       <button
         onClick={() => navigate({ pathname: '/sign-in' })}
-        className={getButtonStyles({ buttonStyle: 'text-and-icon' })}
+        className="button-text button-with-icon"
       >
-        <span className={getIconStyles({ iconStyle: 'gray' })}>
+        <span className="material-icons icon-gray-sm">
           arrow_back
         </span>
         Back to sign in
