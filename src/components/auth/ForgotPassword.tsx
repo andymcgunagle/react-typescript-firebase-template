@@ -67,7 +67,7 @@ export default function ForgotPassword() {
         onClick={() => navigate({ pathname: '/sign-in' })}
         className="button-text button-with-icon"
       >
-        <span className="material-icons icon-gray-sm">
+        <span className="material-icons icon-gray icon-sm">
           arrow_back
         </span>
         Back to sign in

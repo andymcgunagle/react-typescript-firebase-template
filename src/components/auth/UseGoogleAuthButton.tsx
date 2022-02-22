@@ -5,13 +5,14 @@ import { firebaseAuth, firestoreDB } from "../../firebase";
 import { setUid } from "../../redux/authSlice";
 import googleLogo from "../../images/google-logo.svg.png";
 
-export default function SignUpUsingGoogleButton({
+export default function UseGoogleAuthButton({
+  buttonStyle = 'button-standard',
   setErrorMessage,
   setShowErrorMessage,
-}: SignUpUsingGoogleButtonProps) {
+}: UseGoogleAuthButtonProps) {
   const dispatch = useDispatch();
 
-  const signUpWithGoogle = async () => {
+  const authorizeWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
 
     try {
@@ -32,20 +33,21 @@ export default function SignUpUsingGoogleButton({
   return (
     <button
       type="button"
-      onClick={signUpWithGoogle}
-      className="button-standard button-with-icon"
+      onClick={authorizeWithGoogle}
+      className={`${buttonStyle === 'button-standard' ? 'button-standard' : 'button-text'} button-with-icon`}
     >
       <img
         src={googleLogo}
         alt="Google logo"
         className="h-4 w-4"
       />
-      Sign up
+      Use Google account
     </button>
   );
 };
 
-interface SignUpUsingGoogleButtonProps {
+interface UseGoogleAuthButtonProps {
+  buttonStyle?: 'button-standard' | 'button-text',
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>,
   setShowErrorMessage: React.Dispatch<React.SetStateAction<boolean>>,
 };

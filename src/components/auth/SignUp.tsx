@@ -13,7 +13,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ErrorMessage from "../_reusables/components/ErrorMessage";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
-import SignUpWithGoogleButton from "./SignUpUsingGoogleButton";
+import UseGoogleAuthButton from "./UseGoogleAuthButton";
 
 export default function SignUp() {
   const dispatch = useTypedDispatch();
@@ -67,7 +67,9 @@ export default function SignUp() {
   return (
     <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-md">
       <AppName />
-      <AuthFormWrapper heading="Sign up in less than 30 seconds...">
+      <AuthFormWrapper
+        heading={useEmailAndPassword ? "Sign up in less than 30 seconds..." : "Sign up with one click..."}
+      >
         {useEmailAndPassword ?
           <>
             <form
@@ -111,17 +113,15 @@ export default function SignUp() {
                 Sign up
               </button>
             </form>
-            <button
-              onClick={() => setUseEmailAndPassword(!useEmailAndPassword)}
-              type="button"
-              className="button-text flex flex-wrap justify-center items-center gap-1"
-            >
-              ...or use your Google account instead.
-            </button>
+            <UseGoogleAuthButton
+              buttonStyle="button-text"
+              setErrorMessage={setErrorMessage}
+              setShowErrorMessage={setShowErrorMessage}
+            />
           </>
           :
           <>
-            <SignUpWithGoogleButton
+            <UseGoogleAuthButton
               setErrorMessage={setErrorMessage}
               setShowErrorMessage={setShowErrorMessage}
             />
@@ -130,7 +130,8 @@ export default function SignUp() {
               type="button"
               className="button-text flex flex-wrap justify-center items-center gap-1"
             >
-              ...or use an email & password instead.
+              <span className="material-icons icon-sm icon-gray">email</span>
+              <span>Use email & password</span>
             </button>
           </>}
 
@@ -140,7 +141,8 @@ export default function SignUp() {
         type="button"
         className="button-text flex flex-wrap justify-center items-center gap-1"
       >
-        Already have an account?
+        <span className="material-icons icon-sm icon-gray">person</span>
+        <span>Already have an account?</span>
       </button>
       <ErrorMessage
         message={errorMessage}
