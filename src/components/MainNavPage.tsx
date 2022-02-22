@@ -12,9 +12,9 @@ export default function MainNavPage() {
         </li>
         <li className="pill-standard">
           <Link
-            to={`/test`}
+            to={`/settings`}
           >
-            🙂 Here's a link
+            ⚙️ Settings
           </Link>
         </li>
         <li className="pill-standard">

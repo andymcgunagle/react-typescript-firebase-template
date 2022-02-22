@@ -13,7 +13,7 @@
 @layer components {
   /* button component */
   .button-base {
-    @apply px-2 py-1 rounded-[.25rem] w-fit active:translate-y-0 select-none;
+    @apply px-2 py-1 rounded-[.25rem] w-fit active:translate-y-1 select-none;
   }
   .button-with-icon {
     @apply flex gap-2 items-center;
@@ -24,6 +24,9 @@
   .button-outlined {
     @apply button-base border-2 border-gray-900 text-gray-900 shadow-md;
   }
+  .button-outlined-danger {
+    @apply button-base border-2 bg-red-100 border-red-900 text-red-900 shadow-md;
+  }
   .button-outlined-success {
     @apply button-base border-2 bg-green-100 border-green-900 text-green-900 shadow-md;
   }
@@ -33,7 +36,7 @@
 
   /* card component */
   .card-standard {
-    @apply flex flex-col gap-4 p-6 bg-white rounded-md shadow-lg;
+    @apply flex flex-col gap-4 p-6 rounded-md shadow-lg;
   }
 
   /* form component */

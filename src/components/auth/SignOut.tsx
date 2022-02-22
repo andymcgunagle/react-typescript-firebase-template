@@ -3,8 +3,10 @@ import { resetAuth } from "../../redux/authSlice";
 
 import { signOut } from "firebase/auth";
 import { firebaseAuth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function SignOut() {
+  const navigate = useNavigate();
   const dispatch = useTypedDispatch();
 
   const onSignOutButtonClick = async () => {
@@ -12,6 +14,7 @@ export default function SignOut() {
       await signOut(firebaseAuth);
       localStorage.clear();
       dispatch(resetAuth(null));
+      navigate({ pathname: '/' });
     } catch (error: any) {
       console.error(error.message);
     };

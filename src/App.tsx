@@ -13,6 +13,7 @@ import PageNotFound from "./components/_reusables/components/PageNotFound";
 import ResetPassword from "./components/auth/ResetPassword";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
+import SettingsPage from "./components/auth/SettingsPage";
 
 export default function App() {
   //state.auth.uid has an initial state of undefined. The useSetUser hook changes state.auth.uid to a uid string if there is a user or null if there is not.
@@ -42,7 +43,7 @@ export default function App() {
     <main className="p-8 pb-28 min-h-screen overflow-scroll max-w-2xl m-auto relative">
       <Routes>
         <Route path="/" element={<MainNavPage />} />
-        <Route path="/test" element={<h1>Hello, world!</h1>} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <FixedMenuButton />
