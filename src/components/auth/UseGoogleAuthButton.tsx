@@ -1,8 +1,12 @@
+import { setUid } from "../../redux/authSlice";
+import { useTypedDispatch } from "../../redux/store";
+
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { useDispatch } from "react-redux";
 import { firebaseAuth, firestoreDB } from "../../firebase";
-import { setUid } from "../../redux/authSlice";
+
+import { useNavigate } from "react-router-dom";
+
 import googleLogo from "../../images/google-logo.svg.png";
 
 export default function UseGoogleAuthButton({
@@ -10,7 +14,8 @@ export default function UseGoogleAuthButton({
   setErrorMessage,
   setShowErrorMessage,
 }: UseGoogleAuthButtonProps) {
-  const dispatch = useDispatch();
+  const dispatch = useTypedDispatch();
+  const navigate = useNavigate();
 
   const authorizeWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
@@ -21,6 +26,7 @@ export default function UseGoogleAuthButton({
       await setDoc(doc(firestoreDB, 'users', result.user.uid, 'settings', 'publicUserInfo'), { firstName: result.user.displayName?.split(' ')[0] });
 
       dispatch(setUid(result.user.uid));
+      navigate({ pathname: '/' });
     } catch (error: any) {
       if (error.message) {
         setErrorMessage(error.message);

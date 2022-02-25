@@ -15,7 +15,7 @@ export default function Confirmation({
 
   return (
     <>
-      {showConfirmation ?
+      {showConfirmation &&
         <div
           onClick={() => setShowConfirmation(!showConfirmation)}
           className="absolute top-4 flex flex-col gap-4 p-4 max-w-[80%] text-sm font-light bg-green-100 border-2 border-green-900 rounded-md cursor-pointer animate-notification"
@@ -27,7 +27,7 @@ export default function Confirmation({
             <span>{text}</span>
           </div>
         </div>
-        : null}
+      }
     </>
   );
 };

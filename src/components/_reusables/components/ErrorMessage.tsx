@@ -17,7 +17,7 @@ export default function ErrorMessage({
 
   return (
     <>
-      {showErrorMessage ?
+      {showErrorMessage &&
         <div
           onClick={() => setShowErrorMessage(!showErrorMessage)}
           className="absolute top-4 flex items-center gap-2 p-4 max-w-[80%] text-sm font-light bg-red-100 border-2 border-red-900 rounded-md cursor-pointer animate-notification"
@@ -27,7 +27,7 @@ export default function ErrorMessage({
           </span>
           <span>{formatFirebaseErrorMessage(message)}</span>
         </div>
-        : null}
+      }
     </>
   );
 };

@@ -23,7 +23,7 @@ export default function SignOut() {
   return (
     <button
       onClick={onSignOutButtonClick}
-      className="button-text font-semibold"
+      className="font-semibold"
     >
       👋 Sign out
     </button>

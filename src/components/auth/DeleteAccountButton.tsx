@@ -7,11 +7,11 @@ export default function DeleteAccountButton() {
 
   return (
     <div>
-      {showConfirmDelete ?
+      {showConfirmDelete &&
         <ConfirmDeleteAccountDialog
           setShowConfirmDelete={setShowConfirmDelete}
         />
-        : null}
+      }
       <button
         onClick={() => setShowConfirmDelete(true)}
         className="button-outlined-danger font-semibold"
