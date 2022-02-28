@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 import Confirmation from "../_reusables/components/Confirmation";
-import ErrorMessage from "../_reusables/components/ErrorMessage";
+import AuthWrapperWithErrorMessage from "./AuthWrapperWithErrorMessage";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
@@ -40,7 +40,11 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-md">
+    <AuthWrapperWithErrorMessage
+      errorMessage={errorMessage}
+      setShowErrorMessage={setShowErrorMessage}
+      showErrorMessage={showErrorMessage}
+    >
       <AppName />
       <AuthFormWrapper heading="Which email should we send a reset password link to?">
         <form
@@ -79,11 +83,6 @@ export default function ForgotPassword() {
         showConfirmation={showConfirmation}
         text="Password reset email sent! Please check your email."
       />
-      <ErrorMessage
-        message={errorMessage}
-        setShowErrorMessage={setShowErrorMessage}
-        showErrorMessage={showErrorMessage}
-      />
-    </div>
+    </AuthWrapperWithErrorMessage>
   );
 };

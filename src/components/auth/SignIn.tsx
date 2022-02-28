@@ -8,10 +8,12 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import ErrorMessage from "../_reusables/components/ErrorMessage";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 import UseGoogleAuthButton from "./UseGoogleAuthButton";
+import HorizontalRuleWithText from "../_reusables/components/HorizontalRuleWithText";
+import LabelInputWrapper from "../_reusables/components/LabelInputWrapper";
+import AuthPageWithErrorMessage from "./AuthWrapperWithErrorMessage";
 
 export default function SignIn() {
   const dispatch = useTypedDispatch();
@@ -22,7 +24,6 @@ export default function SignIn() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [showErrorMessage, setShowErrorMessage] = useState(false);
-  const [useEmailAndPassword, setUseEmailAndPassword] = useState(false);
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,59 +51,48 @@ export default function SignIn() {
   };
 
   return (
-    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-md">
+    <AuthPageWithErrorMessage
+      errorMessage={errorMessage}
+      setShowErrorMessage={setShowErrorMessage}
+      showErrorMessage={showErrorMessage}
+    >
       <AppName />
       <AuthFormWrapper heading="Welcome back! Sign in below...">
-        {useEmailAndPassword ?
-          <>
-            <form
-              onSubmit={submitForm}
-              className="form-standard"
-            >
-              <input
-                autoFocus
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Email"
-                type="email"
-                value={email}
-                className="input-standard"
-              />
-              <input
-                onChange={e => setPassword(e.target.value)}
-                placeholder="Password"
-                type="password"
-                value={password}
-                className="input-standard"
-              />
-              <button
-                type="submit"
-                className="button-standard"
-              >
-                Sign in
-              </button>
-            </form>
-            <UseGoogleAuthButton
-              buttonStyle="button-text"
-              setErrorMessage={setErrorMessage}
-              setShowErrorMessage={setShowErrorMessage}
+        <UseGoogleAuthButton
+          setErrorMessage={setErrorMessage}
+          setShowErrorMessage={setShowErrorMessage}
+        />
+        <HorizontalRuleWithText text="OR" />
+        <form
+          onSubmit={submitForm}
+          className="form-standard"
+        >
+          <LabelInputWrapper labelText="Email">
+            <input
+              autoFocus
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Email"
+              type="email"
+              value={email}
+              className="input-standard"
             />
-          </>
-          :
-          <>
-            <UseGoogleAuthButton
-              setErrorMessage={setErrorMessage}
-              setShowErrorMessage={setShowErrorMessage}
+          </LabelInputWrapper>
+          <LabelInputWrapper labelText="Password">
+            <input
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+              type="password"
+              value={password}
+              className="input-standard"
             />
-            <button
-              onClick={() => setUseEmailAndPassword(!useEmailAndPassword)}
-              type="button"
-              className="button-text flex flex-wrap justify-center items-center gap-1"
-            >
-              <span className="material-icons icon-sm icon-gray">email</span>
-              <span>Use email & password</span>
-            </button>
-          </>
-        }
+          </LabelInputWrapper>
+          <button
+            type="submit"
+            className="button-standard"
+          >
+            Sign in
+          </button>
+        </form>
       </AuthFormWrapper>
       <div className="flex flex-col items-center gap-2">
         <button
@@ -122,11 +112,6 @@ export default function SignIn() {
           <span>Forgot your password?</span>
         </button>
       </div>
-      <ErrorMessage
-        message={errorMessage}
-        setShowErrorMessage={setShowErrorMessage}
-        showErrorMessage={showErrorMessage}
-      />
-    </div>
+    </AuthPageWithErrorMessage>
   );
 };

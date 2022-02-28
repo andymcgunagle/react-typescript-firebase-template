@@ -9,11 +9,12 @@ import { doc, setDoc } from "firebase/firestore";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-
-import ErrorMessage from "../_reusables/components/ErrorMessage";
 import AppName from "../_reusables/components/AppName";
 import AuthFormWrapper from "../_reusables/components/AuthFormWrapper";
 import UseGoogleAuthButton from "./UseGoogleAuthButton";
+import HorizontalRuleWithText from "../_reusables/components/HorizontalRuleWithText";
+import LabelInputWrapper from "../_reusables/components/LabelInputWrapper";
+import AuthPageWithErrorMessage from "./AuthWrapperWithErrorMessage";
 
 export default function SignUp() {
   const dispatch = useTypedDispatch();
@@ -27,7 +28,6 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [showErrorMessage, setShowErrorMessage] = useState(false);
-  const [useEmailAndPassword, setUseEmailAndPassword] = useState(false);
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,79 +62,68 @@ export default function SignUp() {
     };
   };
 
-
-
   return (
-    <div className="animate-fadeIn flex flex-col items-center gap-4 w-full max-w-md">
+    <AuthPageWithErrorMessage
+      errorMessage={errorMessage}
+      setShowErrorMessage={setShowErrorMessage}
+      showErrorMessage={showErrorMessage}
+    >
       <AppName />
-      <AuthFormWrapper
-        heading={useEmailAndPassword ? "Sign up in less than 30 seconds..." : "Sign up with one click..."}
-      >
-        {useEmailAndPassword ?
-          <>
-            <form
-              onSubmit={submitForm}
-              className="form-standard"
-            >
-              <input
-                autoFocus
-                autoCapitalize="word"
-                onChange={e => setFirstName(e.target.value)}
-                placeholder="First name"
-                type="text"
-                value={firstName}
-                className="input-standard"
-              />
-              <input
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Email"
-                type="email"
-                value={email}
-                className="input-standard"
-              />
-              <input
-                onChange={e => setPassword(e.target.value)}
-                placeholder="Password"
-                type="password"
-                value={password}
-                className="input-standard"
-              />
-              <input
-                onChange={e => setConfirmPassword(e.target.value)}
-                placeholder="Confirm password"
-                type="password"
-                value={confirmPassword}
-                className="input-standard"
-              />
-              <button
-                type="submit"
-                className="button-standard"
-              >
-                Sign up
-              </button>
-            </form>
-            <UseGoogleAuthButton
-              buttonStyle="button-text"
-              setErrorMessage={setErrorMessage}
-              setShowErrorMessage={setShowErrorMessage}
+      <AuthFormWrapper heading="Sign up with one click...">
+        <UseGoogleAuthButton
+          setErrorMessage={setErrorMessage}
+          setShowErrorMessage={setShowErrorMessage}
+        />
+        <HorizontalRuleWithText text="OR" />
+        <form
+          onSubmit={submitForm}
+          className="form-standard"
+        >
+          <LabelInputWrapper labelText="First Name">
+            <input
+              autoFocus
+              autoCapitalize="word"
+              onChange={e => setFirstName(e.target.value)}
+              placeholder="First name"
+              type="text"
+              value={firstName}
+              className="input-standard"
             />
-          </>
-          :
-          <>
-            <UseGoogleAuthButton
-              setErrorMessage={setErrorMessage}
-              setShowErrorMessage={setShowErrorMessage}
+          </LabelInputWrapper>
+          <LabelInputWrapper labelText="Email">
+            <input
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Email"
+              type="email"
+              value={email}
+              className="input-standard"
             />
-            <button
-              onClick={() => setUseEmailAndPassword(!useEmailAndPassword)}
-              type="button"
-              className="button-text flex flex-wrap justify-center items-center gap-1"
-            >
-              <span className="material-icons icon-sm icon-gray">email</span>
-              <span>Use email & password</span>
-            </button>
-          </>}
-
+          </LabelInputWrapper>
+          <LabelInputWrapper labelText="Password">
+            <input
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+              type="password"
+              value={password}
+              className="input-standard"
+            />
+          </LabelInputWrapper>
+          <LabelInputWrapper labelText="Confirm Password">
+            <input
+              onChange={e => setConfirmPassword(e.target.value)}
+              placeholder="Confirm password"
+              type="password"
+              value={confirmPassword}
+              className="input-standard"
+            />
+          </LabelInputWrapper>
+          <button
+            type="submit"
+            className="button-standard"
+          >
+            Sign up
+          </button>
+        </form>
       </AuthFormWrapper>
       <button
         onClick={() => navigate({ pathname: '/sign-in' })}
@@ -144,11 +133,6 @@ export default function SignUp() {
         <span className="material-icons icon-sm icon-gray">person</span>
         <span>Already have an account?</span>
       </button>
-      <ErrorMessage
-        message={errorMessage}
-        setShowErrorMessage={setShowErrorMessage}
-        showErrorMessage={showErrorMessage}
-      />
-    </div>
+    </AuthPageWithErrorMessage>
   );
 };

@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply overscroll-none animate-fadeIn font-raleway;
+    @apply overscroll-none animate-fadeIn font-raleway bg-gray-100;
   }
 }
 
@@ -89,7 +89,7 @@
 
   /* input component */
   .input-standard {
-    @apply border-b-2 border-gray-900 p-2 w-full shadow-inner rounded-sm;
+    @apply p-2 w-full shadow-inner rounded-md bg-gray-50 border-2 border-gray-200 placeholder:text-gray-300;
   }
 
   /* pill component */
