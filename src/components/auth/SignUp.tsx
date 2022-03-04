@@ -128,7 +128,7 @@ export default function SignUp() {
       <button
         onClick={() => navigate({ pathname: '/sign-in' })}
         type="button"
-        className="button-text flex flex-wrap justify-center items-center gap-1"
+        className="button-text button-with-icon"
       >
         <span className="material-icons icon-sm icon-gray">person</span>
         <span>Already have an account?</span>

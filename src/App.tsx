@@ -11,9 +11,9 @@ import Loading from "./components/_reusables/components/Loading";
 import MainNavPage from "./components/MainNavPage";
 import PageNotFound from "./components/_reusables/components/PageNotFound";
 import ResetPassword from "./components/auth/ResetPassword";
+import SettingsPage from "./components/auth/SettingsPage";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
-import SettingsPage from "./components/auth/SettingsPage";
 
 export default function App() {
   //state.auth.uid has an initial state of undefined. The useSetUser hook changes state.auth.uid to a uid string if there is a user or null if there is not.
